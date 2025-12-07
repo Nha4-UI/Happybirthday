@@ -12,18 +12,18 @@
     <style>
         body {
             margin: 0;
-            overflow: hidden;
             font-family: 'Inter', sans-serif;
             height: 100vh;
+            overflow-x: hidden;
             touch-action: manipulation;
-             background: linear-gradient(135deg, #f9a8d4, #f3e8ff);
+            background: linear-gradient(135deg, #f9a8d4, #f3e8ff);
         }
 
         #app {
             position: relative;
             width: 100%;
             height: 100%;
-            overflow: hidden;
+            overflow: visible;
         }
 
         #content {
@@ -43,6 +43,7 @@
             position: absolute;
             width: 100%;
             max-width: 800px;
+            margin: 20px auto;
             padding: 40px;
             background: rgba(255, 255, 255, 0.509);
             backdrop-filter: blur(10px);
@@ -54,6 +55,7 @@
             transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
             pointer-events: none;
         }
+
 
         .step.active {
             opacity: 1;
@@ -164,6 +166,7 @@
             width: 100%;
             height: 100%;
             z-index: 1;
+            pointer-events: none;
         }
     </style>
 </head>
@@ -181,7 +184,8 @@
             <div class="step active" id="step1">
                 <div class="emoji heart-beat">❤️</div>
                 <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gradient">Hey Kon Pov</h1>
-                <p class="text-xl text-gray-700 mb-8">Today is your special day right? I made something special for you...</p>
+                <p class="text-xl text-gray-700 mb-8">Today is your special day right? I made something special for
+                    you...</p>
                 <button class="btn" id="start-btn">Let's Begin</button>
             </div>
 
@@ -190,24 +194,27 @@
                 <div class="emoji">🎂</div>
                 <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gradient">Happy Birthday to you Pov Meas!</h2>
                 <p class="text-lg text-gray-700 mb-6">
-                    On your special day, I wanted to make this for you to show how important your are for me Kon Pov​❤️​.
+                    On your special day, I wanted to make this for you to show how important your are for me Kon
+                    Pov​❤️​.
                 </p>
                 <button class="btn" id="next-btn-2">What makes you special?</button>
             </div>
 
             <!-- Step 3: Reasons You're Amazing -->
             <div class="step" id="step3">
-                <h2 class="text-3xl md:text-4xl font-bold mb-8 text-gradient">Here's why you're​ amazing</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-2 mt-auto text-gradient">Here's why you're​ amazing</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
                     <div class="reason-card">
                         <div class="emoji text-3xl">✨</div>
                         <h3 class="text-xl font-bold mb-1 text-pink-600">Your Kindness</h3>
-                        <p class="text-gray-700">You are kind to everyone, and it truly shows. You have a good heart.</p>
+                        <p class="text-gray-700">You are kind to everyone, and it truly shows. You have a good heart.
+                        </p>
                     </div>
                     <div class="reason-card">
                         <div class="emoji text-3xl">😊</div>
                         <h3 class="text-xl font-bold mb-1 text-pink-600">Your Smile</h3>
-                        <p class="text-gray-700">Your smile make my whole day feel better and stays in my mind all day.</p>
+                        <p class="text-gray-700">Your smile make my whole day feel better and stays in my mind all day.
+                        </p>
                     </div>
                     <div class="reason-card">
                         <div class="emoji text-3xl">🌟</div>
@@ -216,17 +223,19 @@
                     </div>
                 </div>
                 <button class="btn" id="next-btn-3">A Little Surprise</button>
-            </div> 
+            </div>
 
             <!-- Step 4: Memory Lane -->
             <div class="step" id="step4">
                 <div class="emoji">📸</div>
-                <div class="bg-gradient-to-r from-pink-200 to-rose-200 rounded-xl p-8 mb-8 flex flex-col justify-center items-center">
+                <div
+                    class="bg-gradient-to-r from-pink-200 to-rose-200 rounded-xl p-8 mb-8 flex flex-col justify-center items-center">
                     <img src="FongFong2.jpg" height="100" width="250" alt="" srcset="">
                     <p class="text-lg text-gray-700 italic mt-2"></p>
                 </div>
                 <p class="text-lg text-gray-700 mb-3">
-                    When I'm with you, every moment feels good. Even when we don't talk or u ngor😒, being with u is special to me Kon Pov🫰❤️.
+                    When I'm with you, every moment feels good. Even when we don't talk or u ngor😒, being with u is
+                    special to me Kon Pov🫰❤️.
                 </p>
                 <button class="btn" id="next-btn-4">One Last Thing</button>
             </div>
@@ -236,7 +245,8 @@
                 <div class="emoji">🎂</div>
                 <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gradient">My Birthday Wish For You❤️</h2>
                 <p class="text-lg text-gray-700 mb-8">
-                    Your 20s are now activated, may this year be full of joy nah, laughter, and dreams come true, alot of money coming in Pay Panha nham ei😋. May you always know how special
+                    Your 20s are now activated, may this year be full of joy nah, laughter, and dreams come true, alot
+                    of money coming in Pay Panha nham ei😋. May you always know how special
                     you are to me and lucky enough to know you Pov Meas, Love you❤️ JUB JUB😘😘.
                 </p>
                 <p class="text-xl font-semibold text-pink-600 mb-8">
@@ -250,6 +260,8 @@
 
     <script>
         // Three.js Heart Background
+ 
+
         const container = document.getElementById('canvas-container');
         const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
@@ -368,7 +380,7 @@
         // Step Navigation
         let currentStep = 1;
         const totalSteps = 5;
-
+        
         function updateProgressBar() {
             const progress = ((currentStep - 1) / (totalSteps - 1)) * 100;
             document.getElementById('progress-bar').style.width = `${progress}%`;
@@ -470,7 +482,7 @@
                 });
             });
         });
-
+        
         // Initialize progress bar
         updateProgressBar();
     </script>
